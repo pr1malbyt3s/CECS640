@@ -4,11 +4,14 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<!-- Output Form for servlet application. -->
+<title>Output Form</title>
 </head>
 <body>
 	<%
+		//Store reversed string from request in rString variable.
 		String rString = (String)request.getAttribute("reversedString");
+		//Print the reversed string.
 		out.print("Your reversed string is: " + rString);
 	%>
 </body>
