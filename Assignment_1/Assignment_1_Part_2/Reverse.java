@@ -26,17 +26,21 @@ public class Reverse extends HttpServlet {
     }
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String url = "outputForm.jsp";
+		// Set default URL to outputForm.jsp
+		String url = "/outputForm.jsp";
+		// Store the nString request parameter in a variable.
         String rString = request.getParameter("nString");
-        if (rString == null || rString.length() == 0)
-        {
-            url = "inputForm.jsp";
-            request.setAttribute("error", "String cannot be empty.");
+        // Check that string only contains letters, numbers, or spaces.
+        // If so, return an error message.
+        if (!rString.matches("[\\w*\\s*]*")) {
+            url = "/inputForm.jsp";
+            request.setAttribute("error", "String can only contain letters, numbers, and spaces.");
         }
+        // If string passes check, perform reverse function and set reversed string as request attribute.
         else {
         	String revString = new StringBuilder(rString).reverse().toString();
         	request.setAttribute("reversedString", revString);
@@ -45,13 +49,4 @@ public class Reverse extends HttpServlet {
         RequestDispatcher dispatcher = context.getRequestDispatcher(url);
         dispatcher.forward(request, response);
 	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
-	}
-
 }
