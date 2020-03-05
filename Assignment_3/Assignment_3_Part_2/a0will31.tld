@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<taglib xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd"
+	version="2.0">
+	<description>A tag library for Assignment 3 Problem 2.</description>
+	<tlib-version>1.0</tlib-version>
+	<short-name>A3P2</short-name>
+	<uri>/A3P2</uri>
+	<tag>
+		<description>Outputs Current Date and Time</description>
+		<name>getdatetime</name>
+		<tag-class>edu.louisville.cecs640.customTags.Get_DateTime_Tag</tag-class>
+		<body-content>empty</body-content>
+	</tag>
+	<tag>
+		<description>Prints a string vertically.</description>
+		<name>printvertstring</name>
+		<tag-class>edu.louisville.cecs640.customTags.Print_Vert_String</tag-class>
+		<body-content>JSP</body-content>
+	</tag>
+</taglib>
