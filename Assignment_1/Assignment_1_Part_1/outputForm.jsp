@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<!-- Output Form for JSP only application. -->
+<%-- Output Form for JSP only application. --%>
 <title>Output Form</title>
 </head>
 <body>
