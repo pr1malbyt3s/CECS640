@@ -8,7 +8,12 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Properties;
 
+/* Class used to access a Users table in a database.
+* Works with Login servlet to handle connection and query.
+*/
+
 public class UsersTableAccess {
+	// Set global variables for class.
 	private String dbName = null;
 	private String userID = null;
 	private String password = null;
@@ -18,6 +23,9 @@ public class UsersTableAccess {
 	private String crypt = null;
 	private Connection dbConnection = null;
 	
+	/* Method to get properties from a configuration file.
+	* Prevents connection details, such as credentials, from being hard-coded in source.
+	*/
 	public void GetConnectionProperties(String fileName) {
 		FileInputStream f = null;
 		Properties p = null;
@@ -37,7 +45,8 @@ public class UsersTableAccess {
 		}
 		
 	}
-
+	
+	// Method to perform driver loading and database connection.
 	public void DatabaseConnect() {
 		url = host + dbName;
 		try {
@@ -53,7 +62,7 @@ public class UsersTableAccess {
 			System.out.println("SQL Connect Error.");
 		}
 	}
-	
+	// Method to perform database disconnection.
 	public void DatabaseDisconnect() {
 		try {
 			dbConnection.close();
@@ -63,6 +72,10 @@ public class UsersTableAccess {
 		}
 	}
 	
+	/* Method to perform acutal user validation query.
+	* Takes username and password to perform credential validation query.
+	* Uses a prepared statement to prevent SQL injection and compares password against encyrypted password value.
+	*/
 	public boolean ValidateUser(String user, String password) throws SQLException {
 		boolean validate = false;
 		String query = "SELECT * FROM USERS WHERE UPPER(NAME) = UPPER(?) AND DECRYPT_CHAR(PASSWORD, ?) = ? ";
