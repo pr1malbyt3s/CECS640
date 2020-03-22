@@ -8,25 +8,26 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import edu.louisville.cecs640.controllers.UsersTableAccess;
-/**
- * Servlet implementation class Login
+
+/* Login servlet class used to process credential request from login page.
+ * Uses external UsersTableAccess class to perform database functions.
  */
+
 @WebServlet("/Login")
 public class Login extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private UsersTableAccess database = null;
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
+   
     public Login() {
         super();
     }
     
+    // Method to perform connection properties loading and database connection.		
     public void DBConnect() {
     	database = new UsersTableAccess();
     	if (database != null) {
     		try {
-    			database.GetConnectionProperties("/home/pr1malbyt3s/Documents/CECS640/Assignment_4/Assignment_4_Project/src/config.properties");
+    			database.GetConnectionProperties("config.properties");
         		database.DatabaseConnect();
     		}
     		catch (Exception e) {
@@ -36,40 +37,44 @@ public class Login extends HttpServlet {
     	
     }
     
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
+	// Handles all GET requests as POST requests.
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doPost(request, response);
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
+	// Request handling- where all the magic happens.
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// Set default URL.
 		String url = "Welcome.jsp";
+		// Get request login parameters.
 		String user = request.getParameter("username");
 		String pw = request.getParameter("password");
+		// Ensure that parameters are not empty. If so, set an empty field error message.
 		if (user == null || pw == null ) {
 			url = "Login.jsp";
 			request.setAttribute("error", "Input fields cannot be empty");
 		}
 		else {
+			// Perform database connection and user validation.
 			try {
 				DBConnect();
+				// If successful, set name attribute for Welcome page redirection.
 				if(database.ValidateUser(user, pw) == true) {
 					request.setAttribute("name", user);
 				}
+				// If unsuccessful, set error attribute for Login page redirection.
 				else {
 					url = "Login.jsp";
 					request.setAttribute("error", "Invalid username or password. Please try again.");
 				}
+				// Disconnect from database when done.
 				database.DatabaseDisconnect();
 			}
 			catch (Exception e) {
 				System.out.println("Error with request");
 			}
 		}
+		// Forward the request response to the appropriate URL.
 		RequestDispatcher dispatcher = request.getRequestDispatcher(url);
 		dispatcher.forward(request, response);
 	}
