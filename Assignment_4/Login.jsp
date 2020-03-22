@@ -8,7 +8,7 @@
 <title>Login</title>
 </head>
 <body>
-  <%--Check if error attribute was set by Login servlet.--%>
+  	<%--Check if error attribute was set by Login servlet.--%>
 	<%
 		String error_message = "";
 		Object error = request.getAttribute("error");
@@ -29,7 +29,7 @@
         <input type="submit" value="Login">
 	</form>
 	<br>
-  <%--Prints error message if one exists.--%>
+ 	<%--Prints error message if one exists.--%>
 	<font color="red"><%=error_message%></font>
 </body>
 </html>
