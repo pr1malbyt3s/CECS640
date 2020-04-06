@@ -20,7 +20,7 @@ CREATE TABLE Players (
     A             INTEGER NOT NULL,
     PTS           INTEGER NOT NULL,
     PIM           INTEGER NOT NULL,
-    +\/-           INTEGER NOT NULL,
+    PM            INTEGER NOT NULL,
     xGF           DECIMAL(4,2),
     xGA           DECIMAL(4,2)
 );
@@ -48,7 +48,7 @@ CREATE TABLE FreeAgents (
     G             INTEGER NOT NULL,
     A             INTEGER NOT NULL,
     PTS           INTEGER NOT NULL,
-    +\/-           INTEGER NOT NULL,
+    PM            INTEGER NOT NULL,
     CAP           INTEGER NOT NULL,
     PRIMARY KEY (NAME,TEAM)
     
