@@ -12,15 +12,14 @@ SET encryption password = '3Ncrypt6';
 /*Create Players table.*/
 CREATE TABLE Players (
     NUMBER        INTEGER NOT NULL,
-    AGE           INTEGER NOT NULL,
     NAME          VARCHAR(40) NOT NULL PRIMARY KEY,
+    AGE           INTEGER NOT NULL,
     POS           VARCHAR(2) NOT NULL,
     GP            INTEGER NOT NULL,
     G             INTEGER NOT NULL,
     A             INTEGER NOT NULL,
     PTS           INTEGER NOT NULL,
     PIM           INTEGER NOT NULL,
-    PM            INTEGER NOT NULL,
     xGF           DECIMAL(4,2),
     xGA           DECIMAL(4,2)
 );
