@@ -30,12 +30,12 @@ CREATE TABLE Games (
     OPP           VARCHAR(3) NOT NULL,
     GF            INTEGER NOT NULL,
     GA            INTEGER NOT NULL,
-    SHOTS         INTEGER NOT NULL,
-    HITS          INTEGER NOT NULL,
-    FOW           INTEGER NOT NULL,
-    PPO           INTEGER NOT NULL,
-    PPG           INTEGER NOT NULL,
-    PIM           INTEGER NOT NULL
+    SF            INTEGER NOT NULL,
+    xGF           INTEGER NOT NULL,
+    xGA           INTEGER NOT NULL,
+    HDSF          INTEGER NOT NULL,
+    HDSA          INTEGER NOT NULL,
+    PDO           INTEGER NOT NULL
 );
 
 /*Create FreeAgents table.*/
@@ -54,5 +54,5 @@ CREATE TABLE FreeAgents (
 );  
 
 /*Insert test values into Users table.*/
-INSERT INTO Users values (101, 'Bob', encrypt('J@v@b3@n23'));
-INSERT INTO Users values (102, 'Alice', encrypt('C0l0mb1anr0@$t'));
+INSERT INTO Users values (101, 'Don', encrypt('J@v@b3@n23'));
+INSERT INTO Users values (102, 'Rod', encrypt('C0l0mb1anr0@$t'));
