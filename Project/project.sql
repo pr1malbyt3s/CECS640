@@ -20,8 +20,8 @@ CREATE TABLE Players (
     A             INTEGER NOT NULL,
     PTS           INTEGER NOT NULL,
     PIM           INTEGER NOT NULL,
-    xGF           DECIMAL(4,2),
-    xGA           DECIMAL(4,2)
+    xGF           DECIMAL(4,2) NOT NULL,
+    xGA           DECIMAL(4,2) NOT NULL
 );
 
 /*Create Games table.*/
@@ -31,11 +31,11 @@ CREATE TABLE Games (
     GF            INTEGER NOT NULL,
     GA            INTEGER NOT NULL,
     SF            INTEGER NOT NULL,
-    xGF           INTEGER NOT NULL,
-    xGA           INTEGER NOT NULL,
+    xGF           DECIMAL(3,2) NOT NULL,
+    xGA           DECIMAL(3,2) NOT NULL,
     HDSF          INTEGER NOT NULL,
     HDSA          INTEGER NOT NULL,
-    PDO           INTEGER NOT NULL
+    PDO           DECIMAL(4,3) NOT NULL
 );
 
 /*Create FreeAgents table.*/
