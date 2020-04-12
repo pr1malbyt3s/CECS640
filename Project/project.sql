@@ -151,3 +151,8 @@ INSERT INTO Games values('2020-03-08','Penguins',6,2,36,2.93,2.54,10,10,1.1);
 INSERT INTO Games values('2020-03-10','Red Wings',5,2,36,2.61,1.71,9,6,1.059);
                                               
 /*Insert values into FreeAgents Table*/                                              
+INSERT INTO FreeAgent values('Alex Pietrangelo', 'Blues', 30, 'D', 16, 36, 52, 11, 6500000);
+INSERT INTO FreeAgent values('Taylor Hall', 'Coyotes', 28, 'L', 16, 36, 52, -14, 6000000);
+INSERT INTO FreeAgent values('Mikael Granlund', 'Predators', 28, 'C', 17, 13, 30, -4, 5750000);
+INSERT INTO FreeAgent values('Justin Schultz', 'Penguins', 29, 'D', 3, 9, 12, -13, 5500000);
+INSERT INTO FreeAgent values('Tyson Barrie', 'Maple Leafs', 28, 'D', 5, 34, 39, -7, 5500000);
