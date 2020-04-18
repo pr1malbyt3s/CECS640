@@ -27,7 +27,7 @@ CREATE TABLE Players (
 /*Create Games table.*/
 CREATE TABLE Games (
     DATE          DATE NOT NULL PRIMARY KEY,
-    OPP           VARCHAR(3) NOT NULL,
+    OPP           VARCHAR(30) NOT NULL,
     GF            INTEGER NOT NULL,
     GA            INTEGER NOT NULL,
     SF            INTEGER NOT NULL,
@@ -41,7 +41,7 @@ CREATE TABLE Games (
 /*Create FreeAgents table.*/
 CREATE TABLE FreeAgents (
     NAME          VARCHAR(40) NOT NULL,
-    TEAM          VARCHAR(3) NOT NULL,
+    TEAM          VARCHAR(30) NOT NULL,
     AGE           INTEGER NOT NULL,
     POS           VARCHAR(2) NOT NULL,
     G             INTEGER NOT NULL,
