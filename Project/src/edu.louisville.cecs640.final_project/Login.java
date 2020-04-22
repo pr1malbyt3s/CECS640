@@ -12,7 +12,7 @@ import javax.servlet.http.HttpSession;
 import edu.louisville.cecs640.controllers.DatabaseAccess;
 
 /* Login servlet class used to process credential request from login page.
- * Uses external UsersTableAccess class to perform database functions.
+ * Uses external DatabaseAccess class to perform database functions.
  */
 
 @WebServlet("/Login")
